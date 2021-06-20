@@ -1,0 +1,59 @@
+html{
+    top: 0;
+    font-size: 62.5%;
+}
+
+body{
+    width: 1000px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header{
+    background-color:#f09898;
+    font-size: 2.4rem;
+    padding: 30px;
+    color: #ffffff;
+}
+
+h3{
+    font-size: 1.8rem;
+}
+
+fieldset{
+    border: none;
+    background-color: #8cbcfc;
+}
+
+table{
+    border-collapse: collapse;
+    margin: auto;
+}
+
+input{
+    width: 300px;
+}
+
+select{
+    width: 300px;
+}
+
+textarea{
+    resize: none;
+}
+
+.list_table th{
+    border: solid 1px #000000;
+    font-size: 1.4rem;
+    padding: 5px;
+    background-color: gray;
+    color: #ffffff;
+}
+
+.list_table td{
+    border: solid 1px #000000;
+    font-size: 1.4rem;
+    padding: 5px;
+
+}
