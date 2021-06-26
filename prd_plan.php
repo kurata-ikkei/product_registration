@@ -1,11 +1,7 @@
 <?php
 require_once('./php/funcs.php');
 
-try {
-  $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','root');
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
+$pdo = db_conn();
 //２．SQL文を用意(データ取得：SELECT)
 $stmt = $pdo->prepare("SELECT * FROM product");
 //3. 実行
@@ -14,13 +10,13 @@ $status = $stmt->execute();
 //4．データ表示
 $view="";
 if($status==false) {
-  $error = $stmt->errorInfo();
-  exit("ErrorQuery:".$error[2]);
-
+    sql_error($stmt);
 }else{
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .="<tr>";
     $view .= "<td>".h($result['id']).'</td><td>'.h($result['item_no']).'</td><td>'.h($result['category']).'</td><td>'.h($result['gender']).'</td><td>'.h($result['item_name']).'</td><td>'.h($result['item_price']).'</td>';
+    $view .='<td><a href="./prd_plan_modify.php?id='.h($result['id']).'">編集</a></td>';
+    $view .='<td><a href="./php/delete_item.php?id='.h($result['id']).'">削除</a></td>';
     $view .="</tr>";
     }
 }
@@ -105,7 +101,9 @@ if($status==false) {
             <th>GENDER</th>
             <th>ITEM NAME</th>
             <th>ITEM PRICE</th>
-        </tr>
+            <th>編集ボタン</th>
+            <th>削除ボタン</th>
+            </tr>
             <?= $view ?>
     </table>
 </div>

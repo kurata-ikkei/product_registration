@@ -1,11 +1,7 @@
 <?php
 require_once('./php/funcs.php');
-
-try {
-  $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','root');
-} catch (PDOException $e) {
-  exit('DBConnectError:'.$e->getMessage());
-}
+//1. DB接続
+$pdo = db_conn();
 //２．SQL文を用意(データ取得：SELECT)
 $stmt = $pdo->prepare("SELECT category, COUNT(id) FROM product GROUP BY category");
 //3. 実行
@@ -17,9 +13,7 @@ $category ="";
 $count ="";
 
 if($status==false) {
-  $error = $stmt->errorInfo();
-  exit("ErrorQuery:".$error[2]);
-
+  sql_error($stmt);
 }else{
   while( $result1 = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $graph1 .="<tr>";
