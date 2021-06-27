@@ -31,19 +31,25 @@ if($status==false) {
     <title>ユーザー管理画面</title>
 </head>
 <body>
-<table class="list_table">
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>login-id</th>
-            <th>login-pw</th>
-            <th>role</th>
-            <th>life_flg</th>
-            <th>編集ボタン</th>
-            <th>削除ボタン</th>
-            </tr>
-            <?= $view ?>
-    </table>
-    
+<div class="warpper">
+<h2>ログイン・登録画面</h2>
+<a href="./login.php">ログイン・ユーザー追加</a>
+</div>
+<div>
+    <h2>ユーザー一覧</h2>
+    <table class="list_table">
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>login-id</th>
+                <th>login-pw</th>
+                <th>role</th>
+                <th>life_flg</th>
+                <th>編集ボタン</th>
+                <th>削除ボタン</th>
+                </tr>
+                <?= $view ?>
+        </table>
+</div>
 </body>
 </html>
