@@ -49,6 +49,7 @@ if($status==false) {
             <li><a href="./sku.php">SKU管理（未）</a></li>
             <li><a href="#">BIツール（未）</a></li>
             <li><a href="#">マスター管理（未）</a></li>
+            <li><a href="./user_mgt.php">ユーザー管理</a></li>
         </ul>
     </div>
 
