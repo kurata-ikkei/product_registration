@@ -31,6 +31,7 @@ if($status==false) {
     <title>ユーザー管理画面</title>
 </head>
 <body>
+<a href="./index.php">管理画面に戻る</a>
 <div class="warpper">
 <h2>ログイン・登録画面</h2>
 <a href="./login.php">ログイン・ユーザー追加</a>
