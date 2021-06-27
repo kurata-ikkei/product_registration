@@ -29,7 +29,45 @@ if($status==false){
     sql_error($stmt);
     }else{
 //redirect
-    redirect('../login.php');
+    echo '<script type="text/javascript">alert("登録完了");</script>';
+    //redirect('../login.php');
     }
-
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザー登録完了画面</title>
+</head>
+<body>
+  <h1>Thank you</h1>
+  <div class="registered_conf">
+    <table>
+        <tr>
+            <th>NAME:</th>
+            <td><?= h($user_name)?></td>
+        </tr>
+        <tr>
+            <th>Log-in ID:</th>
+            <td><?= h($lid)?></td>
+        </tr>
+        <tr>
+            <th>PASSWORD:</th>
+            <td><?= h($lpw)?></td>
+        </tr>
+        <tr>
+            <th>ROLE:</th>
+            <td>
+                <?=h($user_role)?>
+            </td>
+        </tr>
+    </table>
+  </div>  
+  <div>
+  <h2><a href="../login.php">ログイン画面の「登録ユーザーの方はこちら」からログインしてください</a></h2>
+  </div>
+</body>
+</html>
